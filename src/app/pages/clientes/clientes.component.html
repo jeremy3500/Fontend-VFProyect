@@ -1,0 +1,38 @@
+<main class="container">
+    <div class="card">
+        <h2>Gestionar Socios</h2>
+        <p class="small">Añade, edita y elimina socios. Datos guardados en localStorage (demo).</p>
+        <form id="form-socio" class="notice">
+            <div class="form-row"><input name="nombre" placeholder="Nombre completo" required><input name="email"
+                    placeholder="Correo electrónico"></div>
+            <div class="form-row"><select name="membresia">
+                    <option value="mensual">Mensual</option>
+                    <option value="trimestral">Trimestral</option>
+                    <option value="anual">Anual</option>
+                </select><input name="telefono" placeholder="Teléfono"></div>
+            <button class="primary" type="submit">Agregar socio</button>
+        </form>
+        <h3>Lista de socios</h3>
+
+        <table class="table" id="tabla-socios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Membresía</th>
+                    <th>Contacto</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let cli of listaClientes">
+                    <td>{{ cli.ID }}</td>
+                    <td>{{ cli.CLIENTE }}</td>
+                    <td>{{ cli.EMAIL }}</td>
+                    <td>{{ cli.TIPO_MEMBRESIA }}</td>
+                    <td>{{ cli.TELEFONO }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

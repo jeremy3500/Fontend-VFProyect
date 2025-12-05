@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inicio | Gimnasio FitLife</title>
+    <link rel="stylesheet" href="" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="badge">FF</div>
+            <div>
+                <div style="font-size:18px">Gimnasio <span class="small">FitLife</span></div>
+                <div class="small">Admin Dashboard</div>
+            </div>
+        </div>
+        <nav>
+            <a class="btn btn-admin" routerLink="/login-staff">👤 Admin</a>
+            <a class="btn" routerLink="/inicio">Inicio</a>
+            <a class="btn" routerLink="/planes">¡Inscríbete Ya!</a>
+            <a class="btn" routerLink="/clases">Clases</a>
+            <a class="btn" routerLink="/clientes">Clientes</a>
+            <a class="btn" routerLink="/entrenadores">Entrenadores</a>
+        </nav>
+    </header>
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+    <footer class="footer">Gimnasio FitLife — &copy; 2025</footer>
+
+</body>
+
+</html>

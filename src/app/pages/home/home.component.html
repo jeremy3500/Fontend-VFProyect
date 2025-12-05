@@ -1,0 +1,107 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">PONTE MODO</h1>
+    <h2 class="hero-subtitle">VERANO</h2>
+    <p class="hero-description">Transforma tu cuerpo este verano con nuestros programas de entrenamiento especializados</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary" (click)="irAPlanes()">¡Inscríbete Ya!</button>
+      <button class="btn btn-secondary">Conoce más</button>
+    </div>
+    <div class="promo-badge">
+      <div class="badge-text">PROMOCIÓN VERANO</div>
+      <div class="badge-price">3 MESES</div>
+      <div class="badge-amount">$79.90</div>
+      <div class="badge-period">MENSUAL</div>
+      <div class="badge-validity">HASTA 10/12</div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+</section>
+
+<!-- Planes Section -->
+<section class="section-planes">
+  <div class="container">
+    <h2 class="section-title">Elige Tu Plan</h2>
+    <div class="planes-grid">
+      <div class="plan-card" *ngFor="let plan of planes" [class.plan-popular]="plan.popular">
+        <div *ngIf="plan.popular" class="badge-popular">MÁS POPULAR</div>
+        <h3 class="plan-nombre">{{ plan.nombre }}</h3>
+        <div class="plan-precio">
+          <span class="precio">{{ plan.precio }}</span>
+          <span class="periodo">/mes</span>
+        </div>
+        <ul class="plan-caracteristicas">
+          <li *ngFor="let caracteristica of plan.caracteristicas">
+            <span class="checkmark">✓</span>
+            {{ caracteristica }}
+          </li>
+        </ul>
+        <button class="btn btn-plan">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Estadísticas Section -->
+<section class="section-stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3 class="stat-number">5000+</h3>
+        <p class="stat-label">Miembros Activos</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="stat-number">50+</h3>
+        <p class="stat-label">Clases Semanales</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="stat-number">25+</h3>
+        <p class="stat-label">Entrenadores Certificados</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="stat-number">24/7</h3>
+        <p class="stat-label">Disponibilidad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Staff Access Section -->
+<section class="section-staff">
+  <div class="container">
+    <h2 class="section-title">Acceso para Personal</h2>
+    <div class="staff-content">
+      <p class="staff-description">¿Eres parte de nuestro equipo? Accede a tu panel de control</p>
+      <div class="staff-cards">
+        <div class="staff-card">
+          <div class="staff-icon">👨‍💼</div>
+          <h3>Recepcionista</h3>
+          <p>Registra accesos y pagos</p>
+          <button class="btn btn-staff-card" (click)="irALogin()">Acceder</button>
+        </div>
+        <div class="staff-card">
+          <div class="staff-icon">👔</div>
+          <h3>Administrador</h3>
+          <p>Gestiona membresías e informes</p>
+          <button class="btn btn-staff-card" (click)="irALogin()">Acceder</button>
+        </div>
+        <div class="staff-card">
+          <div class="staff-icon">🏃</div>
+          <h3>Instructor</h3>
+          <p>Consulta inscritos a clases</p>
+          <button class="btn btn-staff-card" (click)="irALogin()">Acceder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-cta">
+  <div class="cta-content">
+    <h2>¿Listo para cambiar tu vida?</h2>
+    <p>Únete a miles de personas que ya están transformando su cuerpo y mente</p>
+    <button class="btn btn-cta">Empezar Ahora</button>
+  </div>
+</section>

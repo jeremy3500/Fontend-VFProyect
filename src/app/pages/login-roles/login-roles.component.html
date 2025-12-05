@@ -1,0 +1,32 @@
+<div class="login-roles-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <button class="btn-volver" (click)="volverHome()">← Volver</button>
+      <h1 class="logo">Gimnasio <span class="logo-fit">VidaFit</span></h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Título -->
+      <section class="titulo-section">
+        <h2 class="main-title">SELECCIONA TU ROL</h2>
+        <p class="subtitle">¿Cuál es tu rol en Gimnasio VidaFit?</p>
+      </section>
+
+      <!-- Roles Grid -->
+      <section class="roles-section">
+        <div class="roles-grid">
+          <div class="rol-card" *ngFor="let rol of roles" (click)="seleccionarRol(rol.id)">
+            <div class="rol-icon">{{ rol.icon }}</div>
+            <h3 class="rol-nombre">{{ rol.nombre }}</h3>
+            <p class="rol-descripcion">{{ rol.descripcion }}</p>
+            <button class="btn-ingresar">Ingresar</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

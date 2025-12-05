@@ -1,0 +1,86 @@
+<div class="administrador-container">
+  <header class="header">
+    <div class="header-content">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+      <h1 class="logo">Administrador/Gerente - <span class="logo-fit">VidaFit</span></h1>
+      <div class="user-info">
+        <span>{{ userName }}</span>
+        <button class="btn-logout" (click)="cerrarSesion()">🚪 Cerrar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="page-title">👨‍💼 Panel de Administración</h2>
+      <p class="page-subtitle">Gestión de membresías, informes y análisis del gimnasio</p>
+
+      <!-- Estadísticas -->
+      <section class="stats-section">
+        <div class="stats-grid">
+          <div class="stat-card" *ngFor="let stat of estadisticas">
+            <div class="stat-icon">{{ stat.icono }}</div>
+            <div class="stat-info">
+              <div class="stat-valor">{{ stat.valor }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gestión de Membresías -->
+      <section class="dashboard-card">
+        <div class="card-header">
+          <h3>🎟️ Gestión de Membresías</h3>
+          <button class="btn-action" (click)="crearMembresia()">+ Nueva Membresía</button>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Plan</th>
+                <th>Estado</th>
+                <th>Vencimiento</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let membresia of membresias">
+                <td>{{ membresia.cliente }}</td>
+                <td>{{ membresia.plan }}</td>
+                <td>
+                  <span class="badge" [class.badge-success]="membresia.estado === 'Activa'" 
+                    [class.badge-danger]="membresia.estado === 'Vencida'">
+                    {{ membresia.estado }}
+                  </span>
+                </td>
+                <td>{{ membresia.vencimiento }}</td>
+                <td>
+                  <button class="btn-mini">Editar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Reportes e Informes -->
+      <section class="dashboard-card">
+        <div class="card-header">
+          <h3>📊 Reportes e Informes</h3>
+          <button class="btn-action" (click)="generarReporte()">+ Generar Reporte</button>
+        </div>
+        <div class="reportes-grid">
+          <div class="reporte-card" *ngFor="let reporte of informes">
+            <div class="reporte-icon">📄</div>
+            <h4>{{ reporte.nombre }}</h4>
+            <p class="reporte-fecha">{{ reporte.fecha }}</p>
+            <p class="reporte-tipo">{{ reporte.tipo }}</p>
+            <button class="btn-descargar" (click)="descargarReporte(reporte)">Descargar</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

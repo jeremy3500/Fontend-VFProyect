@@ -1,0 +1,68 @@
+<div class="clases-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+      <h1 class="logo">Gimnasio <span class="logo-fit">VidaFit</span></h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Título -->
+      <section class="titulo-section">
+        <h2 class="main-title">CONOCE NUESTROS ENTRENAMIENTOS EXCLUSIVOS </h2>
+        <p class="subtitle">Selecciona la clase que mejor se adapte a tus objetivos fitness</p>
+      </section>
+
+      <!-- Clases Grid -->
+      <section class="clases-section">
+        <div class="clases-grid">
+          <div class="clase-card" *ngFor="let clase of clasesDestacadas" 
+            [class.seleccionada]="claseSeleccionada?.id === clase.id"
+            (click)="seleccionarClase(clase)">
+            <div class="clase-image-container">
+              <div class="clase-image" [style.background]="'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'"></div>
+              <div class="clase-titulo-overlay">{{ clase.nombre }}</div>
+            </div>
+            <div class="clase-content">
+              <h3 class="clase-nombre">{{ clase.nombre }}</h3>
+              
+              <div class="clase-specs">
+                <div class="spec-item">
+                  <span class="spec-icon">⏱</span>
+                  <span class="spec-text">{{ clase.duracion }}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-icon">💪</span>
+                  <span class="spec-text">{{ clase.intensidad }}</span>
+                </div>
+              </div>
+
+              <p class="clase-descripcion">{{ clase.descripcion }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detalles de clase seleccionada -->
+      <section class="detalles-section" *ngIf="claseSeleccionada">
+        <div class="detalles-card">
+          <h3>{{ claseSeleccionada.nombre }}</h3>
+          <p>{{ claseSeleccionada.descripcion }}</p>
+          <div class="detalles-specs">
+            <div class="spec">
+              <span class="label">Duración:</span>
+              <span class="value">{{ claseSeleccionada.duracion }}</span>
+            </div>
+            <div class="spec">
+              <span class="label">Intensidad:</span>
+              <span class="value">{{ claseSeleccionada.intensidad }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

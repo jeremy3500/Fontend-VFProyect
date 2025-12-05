@@ -1,0 +1,39 @@
+<div>
+    <div class="head"></div>
+    <div class="body">
+        <div class="modul">
+            <img src="https://media.glamour.es/photos/67601b023043ab398ff0d1c3/16:9/w_2560%2Cc_limit/GettyImages-2027278927.jpg"
+                alt="">
+
+            <div class="login-container">
+
+                <h2>Iniciar Sesión</h2>
+                <hr>
+
+                <label for="username">Nombre de Usuario</label>
+                <div class="input-group">
+                    <span class="icon material-icons">mail</span>
+                    <input type="text" id="username" placeholder="user name">
+                </div>
+
+                <label for="password">Contraseña:</label>
+                <div class="input-group">
+                    <span class="icon material-icons">lock</span>
+                    <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="password">
+                    <span class="icon material-icons eye" (click)="togglePasswordVisibility()">
+                        {{ showPassword ? 'visibility_off' : 'visibility' }}
+                    </span>
+                </div>
+
+                <div class="options">
+                    <label><input type="checkbox"> Recordarme</label>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button (click)="iniciarSesion()" class="continue-btn">Continua →</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

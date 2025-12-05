@@ -1,0 +1,34 @@
+<main class="container">
+  <div class="card">
+    <h2>Gestionar Entrenadores</h2>
+    <p class="small">Gestiona la lista de entrenadores.</p>
+    <form id="form-ent" class="notice">
+      <div class="form-row"><input name="nombre" placeholder="Nombre completo" required><input name="especialidad"
+          placeholder="Especialidad"></div>
+      <button class="primary" type="submit">Agregar</button>
+    </form>
+    <ul id="lista-entrenadores"></ul>
+    <h3>Lista de Entrenadores</h3>
+
+        <table class="table" id="tabla-socios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Entrenador</th>
+                    <th>Correo</th>
+                    <th>Contacto</th>
+                    <th>Especialidad</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let ent of listaEntrenadores">
+                    <td>{{ ent.ID }}</td>
+                    <td>{{ ent.ENTRENADOR }}</td>
+                    <td>{{ ent.EMAIL }}</td>
+                    <td>{{ ent.TELEFONO }}</td>
+                    <td>{{ ent.ESPECIALIDAD }}</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+</main>

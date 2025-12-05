@@ -1,0 +1,181 @@
+<div class="planes-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+      <h1 class="logo">Gimnasio <span class="logo-fit">VidaFit</span></h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Título -->
+      <section class="titulo-section">
+        <h2 class="main-title">SELECCIONA TU PLAN</h2>
+        <p class="subtitle">Elige el plan que mejor se adapte a tus necesidades</p>
+      </section>
+
+      <!-- Planes Grid -->
+      <section class="planes-section">
+        <div class="planes-grid">
+          <!-- Plan Black (Destacado) -->
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'black'">
+            <div class="plan-header-black">
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 'black'">✓</div>
+              <div class="plan-badge">MÁS BENEFICIOS</div>
+            </div>
+            <h3 class="plan-title-black">PLAN BLACK</h3>
+            <div class="plan-details-black">
+              <div class="detail-row">
+                <span class="label">Inscripción</span>
+                <span class="value">{{ planes[0].inscripcion }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Mantenimiento</span>
+                <span class="value">{{ planes[0].mantenimiento }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Fidelidad</span>
+                <span class="value">{{ planes[0].fidelidad }}</span>
+              </div>
+            </div>
+            <p class="plan-description">{{ planes[0].descripcion }}</p>
+            <div class="plan-price-black">
+              <div class="price-info">
+                <span class="label-price">DE</span>
+                <span class="price-original">119,90</span>
+                <span class="label-price">A</span>
+              </div>
+              <div class="price-main">
+                <span class="currency">S/</span>
+                <span class="amount">79,90</span>
+                <span class="asterisk">*</span>
+              </div>
+              <p class="price-note">mensual por 3 meses<br>después de 119,90/mes</p>
+            </div>
+            <button class="btn-seleccionar" (click)="seleccionarPlan('black')"
+              [class.active]="planSeleccionado === 'black'">
+              {{ planSeleccionado === 'black' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            </button>
+          </div>
+
+          <!-- Plan Fit -->
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'fit'">
+            <div class="plan-header-black">
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 'fit'">✓</div>
+            </div>
+            <h3 class="plan-title-black">{{ planes[1].nombre }}</h3>
+            <div class="plan-details-black">
+              <div class="detail-row">
+                <span class="label">Inscripción</span>
+                <span class="value">{{ planes[1].inscripcion }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Mantenimiento</span>
+                <span class="value">{{ planes[1].mantenimiento }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Fidelidad</span>
+                <span class="value">{{ planes[1].fidelidad }}</span>
+              </div>
+            </div>
+            <p class="plan-description">{{ planes[1].descripcion }}</p>
+            <div class="plan-price-black">
+              <div class="price-info">
+                <span class="label-price">DE</span>
+                <span class="price-original">89,90</span>
+                <span class="label-price">A</span>
+              </div>
+              <div class="price-main">
+                <span class="currency">S/</span>
+                <span class="amount">69,90</span>
+                <span class="asterisk">*</span>
+              </div>
+              <p class="price-note">mensual por 3 meses<br>después de 89,90/mes</p>
+            </div>
+            <button class="btn-seleccionar" (click)="seleccionarPlan('fit')"
+              [class.active]="planSeleccionado === 'fit'">
+              {{ planSeleccionado === 'fit' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            </button>
+          </div>
+
+          <!-- Plan Smart -->
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'smart'">
+            <div class="plan-header-black">
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 'smart'">✓</div>
+            </div>
+            <h3 class="plan-title-black">{{ planes[2].nombre }}</h3>
+            <div class="plan-details-black">
+              <div class="detail-row">
+                <span class="label">Inscripción</span>
+                <span class="value">{{ planes[2].inscripcion }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Mantenimiento</span>
+                <span class="value">{{ planes[2].mantenimiento }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Fidelidad</span>
+                <span class="value">{{ planes[2].fidelidad }}</span>
+              </div>
+            </div>
+            <p class="plan-description">{{ planes[2].descripcion }}</p>
+            <div class="plan-price-black">
+              <div class="price-info">
+                <span class="label-price">DE</span>
+                <span class="price-original">99,90</span>
+                <span class="label-price">A</span>
+              </div>
+              <div class="price-main">
+                <span class="currency">S/</span>
+                <span class="amount">89,90</span>
+                <span class="asterisk">*</span>
+              </div>
+              <p class="price-note">mensual por 3 meses<br>después de 99,90/mes</p>
+            </div>
+            <button class="btn-seleccionar" (click)="seleccionarPlan('smart')"
+              [class.active]="planSeleccionado === 'smart'">
+              {{ planSeleccionado === 'smart' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add-ons Section -->
+      <section class="addons-section">
+        <h3 class="addons-title">¿Quieres acelerar tus resultados? 🔥</h3>
+        <div class="addon-card">
+          <div class="addon-checkbox">
+            <input type="checkbox" [(ngModel)]="coachAgregado" (change)="agregarCoach()" 
+              id="coach-checkbox">
+          </div>
+          <label for="coach-checkbox" class="addon-label">
+            <span class="addon-name">SMART FIT COACH</span>
+            <span class="addon-price">+ S/ {{ addons[0].precio }},90/mes</span>
+          </label>
+        </div>
+        <p class="addon-description">{{ addons[0].descripcion }}</p>
+      </section>
+
+      <!-- Resumen y Botón -->
+      <section class="resumen-section">
+        <div class="resumen-box">
+          <h3>Resumen del plan</h3>
+          <div class="resumen-item" *ngIf="planSeleccionado">
+            <span>Plan seleccionado:</span>
+            <span class="font-bold">{{ obtenerPlanSeleccionado()?.nombre }}</span>
+          </div>
+          <div class="resumen-item" *ngIf="coachAgregado">
+            <span>Coach incluido:</span>
+            <span class="font-bold">Sí</span>
+          </div>
+          <button class="btn-continuar" (click)="continuarRegistro()"
+            [disabled]="!planSeleccionado">
+            Continuar al Registro
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

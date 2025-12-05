@@ -1,0 +1,158 @@
+header {
+  background: white;
+  padding: 20px;
+  border-bottom: 2px solid #ffc300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.logo .badge {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ffc300, #ffb300);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.logo .small {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav .btn {
+  padding: 8px 12px;
+  background: none;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+nav .btn:hover {
+  background: #f0f0f0;
+  border-color: #ffc300;
+}
+
+nav .btn-staff {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  padding: 10px 16px !important;
+  font-size: 0.9rem;
+}
+
+nav .btn-staff:hover {
+  background: linear-gradient(135deg, #0f3460, #1a1a2e) !important;
+  box-shadow: 0 5px 15px rgba(15, 52, 96, 0.3);
+  transform: translateY(-2px);
+}
+
+nav .btn-admin {
+  background: linear-gradient(135deg, #f44336, #d32f2f) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  padding: 8px 12px !important;
+  font-size: 0.85rem;
+}
+
+nav .btn-admin:hover {
+  background: linear-gradient(135deg, #d32f2f, #c62828) !important;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+  transform: translateY(-2px);
+}
+
+.content {
+  min-height: calc(100vh - 200px);
+}
+
+.footer {
+  background: #1a1a2e;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  border-top: 2px solid #ffc300;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  nav .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  nav .btn-staff {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px;
+  }
+
+  .logo {
+    gap: 10px;
+  }
+
+  .logo .badge {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  nav .btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}

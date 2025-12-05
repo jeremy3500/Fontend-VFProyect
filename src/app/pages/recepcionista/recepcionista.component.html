@@ -1,0 +1,84 @@
+<div class="recepcionista-container">
+  <header class="header">
+    <div class="header-content">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+      <h1 class="logo">Recepcionista - <span class="logo-fit">VidaFit</span></h1>
+      <div class="user-info">
+        <span>{{ userName }}</span>
+        <button class="btn-logout" (click)="cerrarSesion()">🚪 Cerrar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="page-title">🏋️ Panel de Control - Recepcionista</h2>
+      <p class="page-subtitle">Gestiona los accesos de clientes y registra los pagos de membresías</p>
+
+      <div class="dashboard-grid">
+        <!-- Registro de Accesos -->
+        <section class="dashboard-card">
+          <div class="card-header">
+            <h3>📋 Registro de Accesos</h3>
+            <button class="btn-action" (click)="registrarAcceso()">+ Nuevo Acceso</button>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Hora</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let acceso of accesos">
+                  <td>{{ acceso.cliente }}</td>
+                  <td>{{ acceso.hora }}</td>
+                  <td>{{ acceso.fecha }}</td>
+                  <td><span class="badge badge-success">{{ acceso.estado }}</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Registro de Pagos -->
+        <section class="dashboard-card">
+          <div class="card-header">
+            <h3>💳 Registro de Pagos</h3>
+            <button class="btn-action" (click)="registrarPago()">+ Nuevo Pago</button>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Monto</th>
+                  <th>Plan</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pago of pagos">
+                  <td>{{ pago.cliente }}</td>
+                  <td>{{ pago.monto }}</td>
+                  <td>{{ pago.plan }}</td>
+                  <td>{{ pago.fecha }}</td>
+                  <td>
+                    <span class="badge" [class.badge-success]="pago.estado === 'Pagado'" 
+                      [class.badge-warning]="pago.estado === 'Pendiente'">
+                      {{ pago.estado }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
