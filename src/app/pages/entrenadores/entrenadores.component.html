@@ -1,14 +1,20 @@
 <main class="container">
   <div class="card">
-    <h2>Gestionar Entrenadores</h2>
-    <p class="small">Gestiona la lista de entrenadores.</p>
-    <form id="form-ent" class="notice">
-      <div class="form-row"><input name="nombre" placeholder="Nombre completo" required><input name="especialidad"
-          placeholder="Especialidad"></div>
-      <button class="primary" type="submit">Agregar</button>
-    </form>
+    <h2>Gestionar Instructores</h2>
+    <p class="small">Gestiona la lista de Instructores.</p>
+        <form id="form-ent" class="notice">
+            <div class="form-row">
+                <input name="nombre" placeholder="Nombre completo" required>
+                <input name="especialidad" placeholder="Especialidad">
+            </div>
+            <div class="form-row">
+                <input name="email" type="email" placeholder="Correo electrónico">
+                <input name="telefono" placeholder="Teléfono">
+            </div>
+            <button class="primary" type="submit">Agregar</button>
+        </form>
     <ul id="lista-entrenadores"></ul>
-    <h3>Lista de Entrenadores</h3>
+    <h3>Lista de Instructores</h3>
 
         <table class="table" id="tabla-socios">
             <thead>
@@ -30,5 +36,5 @@
                 </tr>
             </tbody>
         </table>
-  </div>
+  </div>
 </main>
