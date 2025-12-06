@@ -6,6 +6,11 @@ import { ResponseAcceso } from '../interfaces/ResponseAcceso';
 import { ResponseClientes } from '../interfaces/ResponseClientes';
 import { ResponseEntrenadores } from '../interfaces/ResponseEntrenadores';
 import { ResponseClases } from '../interfaces/ResponseClases';
+import { EntrenadorRequest } from '../interfaces/EntrenadorRequest';
+import { ResponseGeneral } from '../interfaces/ResponseGeneral';
+import { ClienteResquest } from '../interfaces/ClienteRequest';
+import { LoginRequest } from '../interfaces/LoginRequest';
+import { LoginResponse } from '../interfaces/LoginResponse';
 
 @Injectable({
      providedIn: 'root'
@@ -31,5 +36,17 @@ export class AccesoService {
 
      validarToken(token: string): Observable<ResponseAcceso> {
           return this.http.get<ResponseAcceso>(`${this.baseUrl}Service/VALIDATION_TOKEN?token=${token}`)
+     }
+
+     SetNewEntrenador(objeto: EntrenadorRequest): Observable<ResponseGeneral> {
+          return this.http.post<ResponseGeneral>(`${this.baseUrl}Service/INSERT_INSTRUCTOR`, objeto)
+     }
+
+     SetNewCliente(objeto: ClienteResquest): Observable<ResponseGeneral> {
+          return this.http.post<ResponseGeneral>(`${this.baseUrl}Service/INSERT_CLIENTE`, objeto)
+     }
+
+     Login(objeto: LoginRequest): Observable<LoginResponse> {
+          return this.http.post<LoginResponse>(`${this.baseUrl}Service/LOGIN`, objeto)
      }
 }

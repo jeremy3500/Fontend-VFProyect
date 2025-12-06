@@ -11,20 +11,20 @@ import { Router } from '@angular/router';
   styleUrl: './planes.component.css'
 })
 export class PlanesComponent {
-  planSeleccionado: string | null = null;
+  planSeleccionado: number = 0;
   coachAgregado = false;
 
   planes = [
     {
-      id: 'black',
-      nombre: 'PLAN BLACK',
+      id: 1,
+      nombre: 'PLAN TRIMESTRAL',
       destacado: true,
       inscripcion: 'Gratis',
       mantenimiento: 'S/ 99.90/año',
       fidelidad: '12 meses',
       precioOriginal: 119.90,
       precioFinal: 79.90,
-      descripcion: 'Entreña en cualquiera de nuestras sedes de Perú y Latinoamérica',
+      descripcion: 'Acceso completo por 3 meses.',
       caracteristicas: [
         'Acceso a todas las sedes',
         'Clases virtuales incluidas',
@@ -33,15 +33,15 @@ export class PlanesComponent {
       ]
     },
     {
-      id: 'fit',
-      nombre: 'PLAN FIT',
+      id: 2,
+      nombre: 'PLAN SEMESTRAL',
       destacado: false,
       inscripcion: 'Gratis',
       mantenimiento: 'S/ 99.90/año',
       fidelidad: '12 meses',
       precioOriginal: 89.90,
       precioFinal: 69.90,
-      descripcion: 'Entrena cuando quieras en tu unidad y pagas menos por eso.',
+      descripcion: 'Acceso completo por 6 meses.',
       caracteristicas: [
         'Acceso a una sede',
         'Horarios flexibles',
@@ -50,15 +50,15 @@ export class PlanesComponent {
       ]
     },
     {
-      id: 'smart',
-      nombre: 'PLAN SMART',
+      id: 3,
+      nombre: 'PLAN ANUAL',
       destacado: false,
       inscripcion: 'Gratis',
       mantenimiento: 'S/ 99.90/año',
       fidelidad: 'Sin',
       precioOriginal: 99.90,
       precioFinal: 89.90,
-      descripcion: 'Entrena cuando quieras en la sede que elijas',
+      descripcion: 'Acceso completo por 1 año.',
       caracteristicas: [
         'Acceso a sedes seleccionadas',
         'Mayor flexibilidad',
@@ -83,7 +83,7 @@ export class PlanesComponent {
     return this.planes.find(p => p.id === this.planSeleccionado);
   }
 
-  seleccionarPlan(idPlan: string) {
+  seleccionarPlan(idPlan: number) {
     this.planSeleccionado = idPlan;
   }
 
@@ -92,6 +92,8 @@ export class PlanesComponent {
   }
 
   continuarRegistro() {
+    localStorage.setItem("ID_PLAN", this.planSeleccionado.toString())
+    console.log('Plan seleccionado:', this.planSeleccionado);
     if (this.planSeleccionado) {
       console.log('Plan seleccionado:', this.planSeleccionado);
       console.log('Coach agregado:', this.coachAgregado);

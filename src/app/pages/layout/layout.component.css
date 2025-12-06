@@ -82,7 +82,7 @@ nav .btn-staff:hover {
 }
 
 nav .btn-admin {
-  background: linear-gradient(135deg, #f44336, #d32f2f) !important;
+  background: linear-gradient(135deg, #3656f4, #2f60d3) !important;
   color: white !important;
   border: none !important;
   font-weight: 700;
@@ -91,9 +91,15 @@ nav .btn-admin {
 }
 
 nav .btn-admin:hover {
-  background: linear-gradient(135deg, #d32f2f, #c62828) !important;
+  background: linear-gradient(135deg, #233dbf, #1653e1) !important;
   box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
   transform: translateY(-2px);
+}
+nav .btn-close{
+  background: linear-gradient(135deg, #f44336, #d33f2f) !important;
+}
+nav .btn-close:hover{
+  background: linear-gradient(135deg, #db2a1d, #ac2617) !important;
 }
 
 .content {

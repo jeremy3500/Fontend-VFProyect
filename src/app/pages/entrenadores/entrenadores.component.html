@@ -2,14 +2,15 @@
   <div class="card">
     <h2>Gestionar Instructores</h2>
     <p class="small">Gestiona la lista de Instructores.</p>
-        <form id="form-ent" class="notice">
+        <form id="form-ent" class="notice" (submit)="agregarInstructor($event)">
             <div class="form-row">
                 <input name="nombre" placeholder="Nombre completo" required>
-                <input name="especialidad" placeholder="Especialidad">
+                <input name="especialidad" placeholder="Especialidad" maxlength="20">
             </div>
             <div class="form-row">
                 <input name="email" type="email" placeholder="Correo electrónico">
-                <input name="telefono" placeholder="Teléfono">
+                <input name="telefono" placeholder="Teléfono" maxlength="9">
+                <input name="documento" placeholder="Nro documento" maxlength="8">
             </div>
             <button class="primary" type="submit">Agregar</button>
         </form>
@@ -22,6 +23,7 @@
                     <th>ID</th>
                     <th>Entrenador</th>
                     <th>Correo</th>
+                    <th>Contraseña</th>
                     <th>Contacto</th>
                     <th>Especialidad</th>
                 </tr>
@@ -31,6 +33,7 @@
                     <td>{{ ent.ID }}</td>
                     <td>{{ ent.ENTRENADOR }}</td>
                     <td>{{ ent.EMAIL }}</td>
+                    <td>{{ ent.PASSWORD }}</td>
                     <td>{{ ent.TELEFONO }}</td>
                     <td>{{ ent.ESPECIALIDAD }}</td>
                 </tr>

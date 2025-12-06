@@ -3,5 +3,7 @@ export interface Cliente{
     CLIENTE:string,
     EMAIL:string,
     TELEFONO:string,
-    TIPO_MEMBRESIA:string
+    TIPO_MEMBRESIA:string,
+    FECHA_FIN_MEMBRESIA:string,
+    ESTADO:string
 }

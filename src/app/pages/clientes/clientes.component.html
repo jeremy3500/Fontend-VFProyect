@@ -12,7 +12,7 @@
                     <th>Membresía</th>
                     <th>Fecha Fin</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -22,14 +22,14 @@
                     <td>{{ cli.EMAIL }}</td>
                     <td>{{ cli.TELEFONO }}</td>
                     <td>{{ cli.TIPO_MEMBRESIA }}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ cli.FECHA_FIN_MEMBRESIA }}</td>
+                    <td>{{ cli.ESTADO }}</td>
 
-                    <td>
+                    <!-- <td>
                         <button class="btn-estado" (click)="abrirModal(cli)">
                             Cambiar estado
                         </button>
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
         </table>

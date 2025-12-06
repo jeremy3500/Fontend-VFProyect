@@ -20,12 +20,12 @@
       <section class="planes-section">
         <div class="planes-grid">
           <!-- Plan Black (Destacado) -->
-          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'black'">
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 1">
             <div class="plan-header-black">
-              <div class="checkmark-icon" *ngIf="planSeleccionado === 'black'">✓</div>
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 1">✓</div>
               <div class="plan-badge">MÁS BENEFICIOS</div>
             </div>
-            <h3 class="plan-title-black">PLAN BLACK</h3>
+            <h3 class="plan-title-black">{{ planes[0].nombre }}</h3>
             <div class="plan-details-black">
               <div class="detail-row">
                 <span class="label">Inscripción</span>
@@ -54,16 +54,16 @@
               </div>
               <p class="price-note">mensual por 3 meses<br>después de 119,90/mes</p>
             </div>
-            <button class="btn-seleccionar" (click)="seleccionarPlan('black')"
-              [class.active]="planSeleccionado === 'black'">
-              {{ planSeleccionado === 'black' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            <button class="btn-seleccionar" (click)="seleccionarPlan(1)"
+              [class.active]="planSeleccionado === 1">
+              {{ planSeleccionado === 1 ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
             </button>
           </div>
 
           <!-- Plan Fit -->
-          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'fit'">
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 2">
             <div class="plan-header-black">
-              <div class="checkmark-icon" *ngIf="planSeleccionado === 'fit'">✓</div>
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 2">✓</div>
             </div>
             <h3 class="plan-title-black">{{ planes[1].nombre }}</h3>
             <div class="plan-details-black">
@@ -94,16 +94,16 @@
               </div>
               <p class="price-note">mensual por 3 meses<br>después de 89,90/mes</p>
             </div>
-            <button class="btn-seleccionar" (click)="seleccionarPlan('fit')"
-              [class.active]="planSeleccionado === 'fit'">
-              {{ planSeleccionado === 'fit' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            <button class="btn-seleccionar" (click)="seleccionarPlan(2)"
+              [class.active]="planSeleccionado === 2">
+              {{ planSeleccionado === 2 ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
             </button>
           </div>
 
           <!-- Plan Smart -->
-          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 'smart'">
+          <div class="plan-card plan-black" [class.seleccionado]="planSeleccionado === 3">
             <div class="plan-header-black">
-              <div class="checkmark-icon" *ngIf="planSeleccionado === 'smart'">✓</div>
+              <div class="checkmark-icon" *ngIf="planSeleccionado === 3">✓</div>
             </div>
             <h3 class="plan-title-black">{{ planes[2].nombre }}</h3>
             <div class="plan-details-black">
@@ -134,9 +134,9 @@
               </div>
               <p class="price-note">mensual por 3 meses<br>después de 99,90/mes</p>
             </div>
-            <button class="btn-seleccionar" (click)="seleccionarPlan('smart')"
-              [class.active]="planSeleccionado === 'smart'">
-              {{ planSeleccionado === 'smart' ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
+            <button class="btn-seleccionar" (click)="seleccionarPlan(3)"
+              [class.active]="planSeleccionado === 3">
+              {{ planSeleccionado === 3 ? 'PLAN SELECCIONADO' : 'SELECCIONAR' }}
             </button>
           </div>
         </div>
@@ -147,8 +147,7 @@
         <h3 class="addons-title">¿Quieres acelerar tus resultados? 🔥</h3>
         <div class="addon-card">
           <div class="addon-checkbox">
-            <input type="checkbox" [(ngModel)]="coachAgregado" (change)="agregarCoach()" 
-              id="coach-checkbox">
+            <input type="checkbox" [(ngModel)]="coachAgregado" (change)="agregarCoach()" id="coach-checkbox">
           </div>
           <label for="coach-checkbox" class="addon-label">
             <span class="addon-name">SMART FIT COACH</span>
@@ -170,8 +169,7 @@
             <span>Coach incluido:</span>
             <span class="font-bold">Sí</span>
           </div>
-          <button class="btn-continuar" (click)="continuarRegistro()"
-            [disabled]="!planSeleccionado">
+          <button class="btn-continuar" (click)="continuarRegistro()" [disabled]="!planSeleccionado">
             Continuar al Registro
           </button>
         </div>

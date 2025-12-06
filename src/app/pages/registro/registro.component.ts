@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ClienteResquest } from '../../interfaces/ClienteRequest';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewInfComponent } from '../../components/modal-view-inf/modal-view-inf.component';
+import { AccesoService } from '../../services/acceso.service';
 
 @Component({
   selector: 'app-registro',
@@ -11,9 +15,12 @@ import { Router } from '@angular/router';
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
-  tiposIdentificacion = ['DNI', 'Pasaporte', 'Cédula de Identidad'];
-  sexos = ['Masculino', 'Femenino', 'Otro', 'Prefiero no decir'];
-  
+  readonly dialog = inject(MatDialog);
+  private accesoService = inject(AccesoService)
+
+  tiposIdentificacion = ['DNI'];
+  sexos = ['Masculino', 'Femenino'];
+
   formulario = {
     tipoIdentificacion: '',
     documentoIdentificacion: '',
@@ -23,15 +30,50 @@ export class RegistroComponent {
     telefonoCelular: '',
     fechaNacimiento: '',
     aceptaPrivacidad: false,
-    recibeSMS: false,
-    recibeWhatsApp: false
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    var idplan = localStorage.getItem("ID_PLAN")
+  }
 
   continuar() {
-    console.log('Formulario de registro:', this.formulario);
-    // Aquí puedes hacer la lógica de registro
+    if (!this.formulario.aceptaPrivacidad) {
+      const dialogRef = this.dialog.open(ModalViewInfComponent, {
+        data: {
+          mensaje: "Debes aceptar los terminos de privacidad."
+        },
+      });
+    }
+    else {
+
+      const nuevo: ClienteResquest = {
+        NOMBRE: this.formulario.nombreApellido,
+        EMAIL: this.formulario.correo,
+        TELEFONO: this.formulario.telefonoCelular,
+        DOCUMENTO: this.formulario.documentoIdentificacion,
+        SEXO: this.formulario.sexo,
+        ID_MEMBRESIA: parseInt(localStorage.getItem("ID_PLAN") || "0"),
+      };
+
+      this.accesoService.SetNewCliente(nuevo).subscribe({
+        next: (data) => {
+          if (data.success) {
+            const dialogRef = this.dialog.open(ModalViewInfComponent, {
+              data: {
+                mensaje: "Usuario registrado con exito."
+              },
+            });
+            this.router.navigate(['/']);
+          } else {
+
+          }
+        }, error: (error) => {
+          console.log(error.message);
+        }
+      })
+
+    }
+
   }
 
   volver() {

@@ -11,7 +11,7 @@ import { LoginRolesComponent } from './pages/login-roles/login-roles.component';
 import { LoginStaffComponent } from './pages/login-staff/login-staff.component';
 import { RecepcionistaComponent } from './pages/recepcionista/recepcionista.component';
 import { AdministradorComponent } from './pages/administrador/administrador.component';
-import { InstructorComponent } from './pages/instructor/instructor.component';
+// import { InstructorComponent } from './pages/instructor/instructor.component';
 import { authGuard } from './custom/auth.guard';
 
 export const routes: Routes = [
@@ -19,7 +19,8 @@ export const routes: Routes = [
     { path: "login-roles", component: LoginRolesComponent },
     { path: "login/recepcionista", component: RecepcionistaComponent, canActivate: [authGuard] },
     { path: "login/administrador", component: AdministradorComponent, canActivate: [authGuard] },
-    { path: "login/instructor", component: InstructorComponent, canActivate: [authGuard] },
+    { path: "layout", component: LayoutComponent },
+    // { path: "login/instructor", component: InstructorComponent, canActivate: [authGuard] },
     {
         path: "", component: LayoutComponent,
         children: [

@@ -18,12 +18,13 @@
             </div>
         </div>
         <nav>
-            <a class="btn btn-admin" routerLink="/login-staff">👤 Admin</a>
+            <a class="btn btn-admin" routerLink="/login-staff" *ngIf="!isToken">👤 Admin</a>
             <a class="btn" routerLink="/inicio">Inicio</a>
             <a class="btn" routerLink="/planes">¡Inscríbete Ya!</a>
             <a class="btn" routerLink="/clases">Clases</a>
-            <a class="btn" routerLink="/clientes">Clientes</a>
-            <a class="btn" routerLink="/entrenadores">Entrenadores</a>
+            <a class="btn" routerLink="/clientes" *ngIf="actInstruct || actAdm">Clientes</a>
+            <a class="btn" routerLink="/entrenadores" *ngIf="actAdm">Entrenadores</a>
+            <a class="btn btn-admin btn-close" (click)="cerrarSesion()" *ngIf="isToken">Cerrar Sesion</a>
         </nav>
     </header>
     <section class="content">
