@@ -1,18 +1,6 @@
 <main class="container">
     <div class="card">
-        <h2>Gestionar Socios</h2>
-        <p class="small">Añade, edita y elimina socios. Datos guardados en localStorage (demo).</p>
-        <form id="form-socio" class="notice">
-            <div class="form-row"><input name="nombre" placeholder="Nombre completo" required><input name="email"
-                    placeholder="Correo electrónico"></div>
-            <div class="form-row"><select name="membresia">
-                    <option value="mensual">Mensual</option>
-                    <option value="trimestral">Trimestral</option>
-                    <option value="anual">Anual</option>
-                </select><input name="telefono" placeholder="Teléfono"></div>
-            <button class="primary" type="submit">Agregar socio</button>
-        </form>
-        <h3>Lista de socios</h3>
+        <h2>Lista de clientes</h2>
 
         <table class="table" id="tabla-socios">
             <thead>
@@ -20,19 +8,52 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Correo</th>
-                    <th>Membresía</th>
                     <th>Contacto</th>
+                    <th>Membresía</th>
+                    <th>Fecha Fin</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
                 <tr *ngFor="let cli of listaClientes">
                     <td>{{ cli.ID }}</td>
                     <td>{{ cli.CLIENTE }}</td>
                     <td>{{ cli.EMAIL }}</td>
-                    <td>{{ cli.TIPO_MEMBRESIA }}</td>
                     <td>{{ cli.TELEFONO }}</td>
+                    <td>{{ cli.TIPO_MEMBRESIA }}</td>
+                    <td></td>
+                    <td></td>
+
+                    <td>
+                        <button class="btn-estado" (click)="abrirModal(cli)">
+                            Cambiar estado
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </main>
+
+<!-- ===========================
+        MODAL
+=========================== -->
+<div class="modal-bg" *ngIf="modalAbierto">
+    <div class="modal">
+        <h3>Cambiar estado</h3>
+
+        <p><strong>Cliente:</strong> {{ clienteSeleccionado?.CLIENTE }}</p>
+
+        <label>estado:</label>
+        <select [(ngModel)]="nuevoEstado">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+
+        <div class="modal-buttons">
+            <button class="btn-cancel" (click)="cerrarModal()">Cancelar</button>
+            <button class="btn-save" (click)="guardarEstado()">Guardar</button>
+        </div>
+    </div>
+</div>

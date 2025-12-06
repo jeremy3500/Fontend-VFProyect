@@ -1,74 +1,40 @@
-<div class="instructor-container">
-  <header class="header">
-    <div class="header-content">
-      <button class="btn-volver" (click)="volver()">← Volver</button>
-      <h1 class="logo">Instructor - <span class="logo-fit">VidaFit</span></h1>
-      <div class="user-info">
-        <span>{{ userName }}</span>
-        <button class="btn-logout" (click)="cerrarSesion()">🚪 Cerrar Sesión</button>
+<main class="container">
+  <div class="card">
+    <h2>Gestionar Instructores</h2>
+    <p class="small">Gestiona la lista de Instructores.</p>
+    <form id="form-ent" class="notice">
+      <div class="form-row">
+        <input name="nombre" placeholder="Nombre completo" required>
+        <input name="especialidad" placeholder="Especialidad">
       </div>
-    </div>
-  </header>
+      <div class="form-row">
+        <input name="email" type="email" placeholder="Correo electrónico">
+        <input name="telefono" placeholder="Teléfono">
+      </div>
+      <button class="primary" type="submit">Agregar</button>
+    </form>
+    <ul id="lista-entrenadores"></ul>
+    <h3>Lista de Instructores</h3>
 
-  <main class="main-content">
-    <div class="container">
-      <h2 class="page-title">📋 Consulta de Inscritos a Clases</h2>
-      <p class="page-subtitle">Visualiza la lista de estudiantes inscritos en tus clases</p>
-
-      <!-- Lista de Clases -->
-      <section class="clases-section">
-        <h3 class="section-title">Mis Clases</h3>
-        <div class="clases-grid">
-          <div class="clase-card" *ngFor="let clase of clases" (click)="verInscritos(clase)"
-            [class.seleccionada]="claseSeleccionada?.id === clase.id">
-            <div class="clase-header">
-              <h3>{{ clase.nombre }}</h3>
-              <span class="badge" [class.badge-success]="clase.estado === 'Próxima'" 
-                [class.badge-secondary]="clase.estado === 'Realizada'">
-                {{ clase.estado }}
-              </span>
-            </div>
-            <div class="clase-details">
-              <p><strong>⏰ Horario:</strong> {{ clase.hora }}</p>
-              <p><strong>👥 Inscritos:</strong> {{ clase.inscritos }} / {{ clase.capacidad }}</p>
-              <div class="progress-bar">
-                <div class="progress-fill" [style.width]="(clase.inscritos / clase.capacidad * 100) + '%'"></div>
-              </div>
-            </div>
-            <button class="btn-ver-inscritos">Ver Inscritos</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Inscritos a la Clase Seleccionada -->
-      <section class="inscritos-section" *ngIf="claseSeleccionada">
-        <div class="inscritos-card">
-          <h3>📝 Inscritos en {{ claseSeleccionada.nombre }}</h3>
-          <p class="inscritos-info">Total de inscritos: <strong>{{ inscritosSeleccionados.length }} personas</strong></p>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Plan</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let inscrito of inscritosSeleccionados; let i = index">
-                  <td>{{ i + 1 }}</td>
-                  <td>{{ inscrito.nombre }}</td>
-                  <td><span class="plan-badge">{{ inscrito.plan }}</span></td>
-                  <td>
-                    <button class="btn-mini">✓ Asistencia</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-</div>
+    <table class="table" id="tabla-socios">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Entrenador</th>
+          <th>Correo</th>
+          <th>Contacto</th>
+          <th>Especialidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ent of listaEntreador">
+          <td>{{ ent.ID }}</td>
+          <td>{{ ent.ENTRENADOR }}</td>
+          <td>{{ ent.EMAIL }}</td>
+          <td>{{ ent.TELEFONO }}</td>
+          <td>{{ ent.ESPECIALIDAD }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
